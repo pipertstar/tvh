@@ -1,120 +1,647 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vendedor Holístico | Peshote</title>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 *{box-sizing:border-box}
+
 html{scroll-behavior:smooth}
+
 body{
-  margin:0; font-family:Inter,Arial,sans-serif; color:#fff;
+  margin:0;
+  font-family:Inter,Arial,sans-serif;
+  color:#fff;
   background:#080511;
   background-image:
     radial-gradient(circle at 15% 15%,rgba(164,60,255,.24),transparent 30%),
     radial-gradient(circle at 85% 25%,rgba(0,209,255,.16),transparent 28%),
     radial-gradient(circle at 50% 90%,rgba(255,0,170,.16),transparent 35%);
-  min-height:100vh; overflow-x:hidden;
+  min-height:100vh;
+  overflow-x:hidden;
 }
+
 body:before{
-  content:""; position:fixed; inset:0; pointer-events:none; opacity:.12;
-  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.12;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
   background-size:50px 50px;
 }
-.container{width:min(1080px,92%);margin:auto}
-nav{padding:24px 0;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:24px;font-weight:800;letter-spacing:2px;color:#fff;text-shadow:0 0 18px #a83cff}
-.badge{border:1px solid #a83cff;border-radius:999px;padding:9px 16px;color:#d8b6ff;font-size:12px}
-.hero{text-align:center;padding:72px 0 55px}
-.kicker{color:#53e7ff;text-transform:uppercase;letter-spacing:4px;font-size:12px;font-weight:700}
-h1{font-size:clamp(48px,9vw,92px);line-height:.95;margin:18px 0;
-   background:linear-gradient(90deg,#fff,#d29aff,#55eaff,#fff);
-   -webkit-background-clip:text;background-clip:text;color:transparent;
-   text-shadow:0 0 35px rgba(174,70,255,.25)}
-.hero p{max-width:760px;margin:0 auto;color:#d8d1e4;font-size:19px;line-height:1.7}
-.sponsor{margin-top:18px;color:#ff71d5;font-weight:700;letter-spacing:1px}
-.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin:30px 0 80px}
-.card{position:relative;padding:32px;border-radius:24px;border:1px solid rgba(184,91,255,.45);
-      background:linear-gradient(145deg,rgba(31,13,51,.9),rgba(12,10,25,.92));
-      box-shadow:0 0 35px rgba(145,43,255,.12)}
-.card.featured{border-color:#46ddff;box-shadow:0 0 45px rgba(0,210,255,.13)}
-.card h2{margin:0 0 10px;font-size:25px}
-.price{font-size:42px;font-weight:800;margin:15px 0;color:#fff;text-shadow:0 0 20px rgba(190,80,255,.5)}
-.card p{color:#c9c2d6;line-height:1.6;min-height:52px}
-.btn{display:block;text-align:center;text-decoration:none;color:#fff;font-weight:800;
-     padding:16px 20px;border-radius:14px;margin-top:25px;
-     background:linear-gradient(90deg,#8b2cff,#d600a9);
-     box-shadow:0 0 22px rgba(177,44,255,.35);transition:.2s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(177,44,255,.6)}
-.featured .btn{background:linear-gradient(90deg,#703cff,#00bfe8)}
-.section{padding:30px 0 80px;text-align:center}
-.section h2{font-size:34px;margin-bottom:35px}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.step{padding:25px 18px;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(255,255,255,.035)}
-.num{font-size:30px;font-weight:800;color:#c45cff;text-shadow:0 0 15px #a83cff}
-.step p{color:#c7c0d0;line-height:1.5;font-size:14px}
-.note{margin:10px auto 0;max-width:700px;color:#8f879d;font-size:13px}
-footer{text-align:center;padding:35px 0;border-top:1px solid rgba(255,255,255,.08);color:#8e869b;font-size:12px}
+
+.container{
+  width:min(1080px,92%);
+  margin:auto;
+}
+
+nav{
+  padding:24px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:800;
+  letter-spacing:2px;
+  color:#fff;
+  text-shadow:0 0 18px #a83cff;
+}
+
+.badge{
+  border:1px solid #a83cff;
+  border-radius:999px;
+  padding:9px 16px;
+  color:#d8b6ff;
+  font-size:12px;
+}
+
+.hero{
+  text-align:center;
+  padding:72px 0 55px;
+}
+
+.kicker{
+  color:#53e7ff;
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:12px;
+  font-weight:700;
+}
+
+h1{
+  font-size:clamp(48px,9vw,92px);
+  line-height:.95;
+  margin:18px 0;
+  background:linear-gradient(90deg,#fff,#d29aff,#55eaff,#fff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow:0 0 35px rgba(174,70,255,.25);
+}
+
+.hero p{
+  max-width:760px;
+  margin:0 auto;
+  color:#d8d1e4;
+  font-size:19px;
+  line-height:1.7;
+}
+
+.sponsor{
+  margin-top:18px;
+  color:#ff71d5;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+  margin:30px 0 80px;
+}
+
+.card{
+  position:relative;
+  padding:32px;
+  border-radius:24px;
+  border:1px solid rgba(184,91,255,.45);
+  background:linear-gradient(145deg,rgba(31,13,51,.9),rgba(12,10,25,.92));
+  box-shadow:0 0 35px rgba(145,43,255,.12);
+}
+
+.card.featured{
+  border-color:#46ddff;
+  box-shadow:0 0 45px rgba(0,210,255,.13);
+}
+
+.card h2{
+  margin:0 0 10px;
+  font-size:25px;
+}
+
+.price{
+  font-size:42px;
+  font-weight:800;
+  margin:15px 0;
+  color:#fff;
+  text-shadow:0 0 20px rgba(190,80,255,.5);
+}
+
+.card p{
+  color:#c9c2d6;
+  line-height:1.6;
+  min-height:52px;
+}
+
+.btn{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  color:#fff;
+  font-weight:800;
+  padding:16px 20px;
+  border-radius:14px;
+  margin-top:25px;
+  background:linear-gradient(90deg,#8b2cff,#d600a9);
+  box-shadow:0 0 22px rgba(177,44,255,.35);
+  transition:.2s;
+  border:0;
+  cursor:pointer;
+  width:100%;
+  font-family:inherit;
+  font-size:15px;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 30px rgba(177,44,255,.6);
+}
+
+.featured .btn{
+  background:linear-gradient(90deg,#703cff,#00bfe8);
+}
+
+.section{
+  padding:30px 0 80px;
+  text-align:center;
+}
+
+.section h2{
+  font-size:34px;
+  margin-bottom:35px;
+}
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.step{
+  padding:25px 18px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;
+  background:rgba(255,255,255,.035);
+}
+
+.num{
+  font-size:30px;
+  font-weight:800;
+  color:#c45cff;
+  text-shadow:0 0 15px #a83cff;
+}
+
+.step p{
+  color:#c7c0d0;
+  line-height:1.5;
+  font-size:14px;
+}
+
+.note{
+  margin:10px auto 0;
+  max-width:700px;
+  color:#8f879d;
+  font-size:13px;
+}
+
+footer{
+  text-align:center;
+  padding:35px 0;
+  border-top:1px solid rgba(255,255,255,.08);
+  color:#8e869b;
+  font-size:12px;
+}
+
+/* =========================
+   MODAL DE PAGO
+========================= */
+
+.modal{
+  display:none;
+  position:fixed;
+  z-index:9999;
+  inset:0;
+  padding:20px;
+  background:rgba(3,2,10,.82);
+  backdrop-filter:blur(10px);
+  align-items:center;
+  justify-content:center;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-box{
+  position:relative;
+  width:min(430px,100%);
+  max-height:92vh;
+  overflow:auto;
+  padding:30px 25px;
+  text-align:center;
+  border-radius:26px;
+  border:1px solid rgba(190,91,255,.55);
+  background:
+    radial-gradient(circle at 50% 0%,rgba(137,45,255,.20),transparent 45%),
+    linear-gradient(145deg,#1f0d33,#0c0a19);
+  box-shadow:
+    0 0 60px rgba(150,40,255,.25),
+    0 20px 80px rgba(0,0,0,.6);
+  animation:modalEntrada .25s ease;
+}
+
+@keyframes modalEntrada{
+  from{
+    opacity:0;
+    transform:translateY(15px) scale(.96);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.close{
+  position:absolute;
+  top:12px;
+  right:15px;
+  width:36px;
+  height:36px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.close:hover{
+  background:rgba(255,255,255,.16);
+}
+
+.modal-kicker{
+  color:#53e7ff;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.modal-box h2{
+  margin:10px 0 5px;
+  font-size:25px;
+}
+
+.modal-price{
+  font-size:32px;
+  font-weight:800;
+  margin:8px 0 18px;
+  background:linear-gradient(90deg,#fff,#d29aff,#55eaff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.qr-wrapper{
+  display:inline-flex;
+  padding:12px;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 0 30px rgba(0,220,255,.18);
+  margin-bottom:18px;
+}
+
+.qr-wrapper img{
+  display:block;
+  width:min(270px,65vw);
+  height:auto;
+  border-radius:8px;
+}
+
+.modal-text{
+  color:#c9c2d6;
+  font-size:14px;
+  line-height:1.6;
+  margin:5px auto 0;
+}
+
+.modal-highlight{
+  color:#fff;
+  font-weight:700;
+}
+
+.modal-help{
+  margin-top:15px;
+  padding:12px;
+  border-radius:12px;
+  background:rgba(255,255,255,.04);
+  color:#9f96ad;
+  font-size:12px;
+  line-height:1.5;
+}
+
+.modal-close-btn{
+  margin-top:18px;
+  width:100%;
+  padding:12px;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:12px;
+  background:transparent;
+  color:#cfc7d9;
+  cursor:pointer;
+  font-family:inherit;
+}
+
+.modal-close-btn:hover{
+  background:rgba(255,255,255,.06);
+}
+
 @media(max-width:760px){
- .cards,.steps{grid-template-columns:1fr}
- .hero{padding-top:45px}.badge{display:none}.card{padding:25px}
+
+  .cards,
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding-top:45px;
+  }
+
+  .badge{
+    display:none;
+  }
+
+  .card{
+    padding:25px;
+  }
+
+  .modal{
+    padding:12px;
+  }
+
+  .modal-box{
+    padding:28px 20px 22px;
+  }
 }
 </style>
 </head>
+
 <body>
+
 <div class="container">
+
 <nav>
   <div class="logo">PESHOTE</div>
   <div class="badge">EXPERIENCIA DIGITAL</div>
 </nav>
 
 <section class="hero">
+
   <div class="kicker">Transformá tu manera de vender</div>
+
   <h1>VENDEDOR<br>HOLÍSTICO</h1>
-  <p>Un taller digital para aprender a vender desde tu esencia, conectar con tus clientes y transformar tu manera de comunicar.</p>
+
+  <p>
+    Un taller digital para aprender a vender desde tu esencia,
+    conectar con tus clientes y transformar tu manera de comunicar.
+  </p>
+
   <div class="sponsor">Auspiciado por Peshote</div>
+
 </section>
 
 <section class="cards">
+
+  <!-- TALLER $32.000 -->
   <article class="card">
+
     <h2>🎓 Taller Digital</h2>
+
     <div class="price">$32.000</div>
-    <p>Acceso completo al taller online para que puedas comenzar tu experiencia Vendedor Holístico.</p>
-    <!-- OPCIÓN $32.000 -->
-<a class="btn" href="Solo%20taller.png" target="_blank">
-  QUIERO EL TALLER
-</a>
-</article>
 
-<article class="card featured">
-  <h2>✨ Taller + 2 Zoom</h2>
-  <div class="price">$43.000</div>
-  <p>Acceso al taller + dos encuentros en vivo por Zoom para acompañarte durante el proceso.</p>
+    <p>
+      Acceso completo al taller online para que puedas comenzar
+      tu experiencia Vendedor Holístico.
+    </p>
 
-  <!-- OPCIÓN $43.000 -->
-  <a class="btn" href="Taller%20con%20sesion%20de%20oom.png" target="_blank">
-    QUIERO TALLER + 2 ZOOM
-  </a>
-</article>
+    <button class="btn" onclick="abrirPago('taller')">
+      QUIERO EL TALLER
+    </button>
+
   </article>
+
+
+  <!-- TALLER + 2 ZOOM $43.000 -->
+  <article class="card featured">
+
+    <h2>✨ Taller + 2 Zoom</h2>
+
+    <div class="price">$43.000</div>
+
+    <p>
+      Acceso al taller + dos encuentros en vivo por Zoom
+      para acompañarte durante el proceso.
+    </p>
+
+    <button class="btn" onclick="abrirPago('premium')">
+      QUIERO TALLER + 2 ZOOM
+    </button>
+
+  </article>
+
 </section>
+
 
 <section class="section">
+
   <h2>¿Cómo funciona?</h2>
+
   <div class="steps">
-    <div class="step"><div class="num">01</div><p>Elegís tu modalidad.</p></div>
-    <div class="step"><div class="num">02</div><p>Realizás el pago de forma segura.</p></div>
-    <div class="step"><div class="num">03</div><p>Recibís el acceso correspondiente.</p></div>
-    <div class="step"><div class="num">04</div><p>¡Comenzás tu experiencia Vendedor Holístico!</p></div>
+
+    <div class="step">
+      <div class="num">01</div>
+      <p>Elegís tu modalidad.</p>
+    </div>
+
+    <div class="step">
+      <div class="num">02</div>
+      <p>Realizás el pago de forma segura.</p>
+    </div>
+
+    <div class="step">
+      <div class="num">03</div>
+      <p>Recibís el acceso correspondiente.</p>
+    </div>
+
+    <div class="step">
+      <div class="num">04</div>
+      <p>¡Comenzás tu experiencia Vendedor Holístico!</p>
+    </div>
+
   </div>
-  <p class="note">El enlace privado del taller se entrega después de confirmar la compra.</p>
+
+  <p class="note">
+    El enlace privado del taller se entrega después de confirmar la compra.
+  </p>
+
 </section>
+
 </div>
+
 
 <footer>
   Vendedor Holístico · Peshote · Experiencia digital
 </footer>
+
+
+<!-- =========================
+     MODAL TALLER $32.000
+========================= -->
+
+<div class="modal" id="modalTaller" onclick="cerrarSiFondo(event)">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="cerrarPago()" aria-label="Cerrar">
+      ×
+    </button>
+
+    <div class="modal-kicker">
+      MEDIO DE PAGO
+    </div>
+
+    <h2>🎓 Taller Digital</h2>
+
+    <div class="modal-price">$32.000</div>
+
+    <div class="qr-wrapper">
+      <img src="Solo%20taller.png" alt="QR para pagar el Taller Digital">
+    </div>
+
+    <p class="modal-text">
+      Escaneá el código QR con tu celular para realizar
+      el pago mediante <span class="modal-highlight">Personal Pay</span>.
+    </p>
+
+    <div class="modal-help">
+      Una vez realizado el pago, conservá el comprobante
+      para confirmar tu compra y recibir el acceso al taller.
+    </div>
+
+    <button class="modal-close-btn" onclick="cerrarPago()">
+      CERRAR
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     MODAL TALLER + 2 ZOOM $43.000
+========================= -->
+
+<div class="modal" id="modalPremium" onclick="cerrarSiFondo(event)">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="cerrarPago()" aria-label="Cerrar">
+      ×
+    </button>
+
+    <div class="modal-kicker">
+      MEDIO DE PAGO
+    </div>
+
+    <h2>✨ Taller + 2 Zoom</h2>
+
+    <div class="modal-price">$43.000</div>
+
+    <div class="qr-wrapper">
+      <img
+        src="Taller%20con%20sesion%20de%20oom.png"
+        alt="QR para pagar Taller más 2 Zoom"
+      >
+    </div>
+
+    <p class="modal-text">
+      Escaneá el código QR con tu celular para realizar
+      el pago mediante <span class="modal-highlight">Personal Pay</span>.
+    </p>
+
+    <div class="modal-help">
+      Una vez realizado el pago, conservá el comprobante
+      para confirmar tu compra y recibir el acceso al taller
+      más los encuentros por Zoom.
+    </div>
+
+    <button class="modal-close-btn" onclick="cerrarPago()">
+      CERRAR
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+function abrirPago(tipo){
+
+  cerrarPago();
+
+  if(tipo === "taller"){
+    document.getElementById("modalTaller").classList.add("active");
+  }
+
+  if(tipo === "premium"){
+    document.getElementById("modalPremium").classList.add("active");
+  }
+
+  document.body.style.overflow = "hidden";
+}
+
+
+function cerrarPago(){
+
+  document.getElementById("modalTaller").classList.remove("active");
+  document.getElementById("modalPremium").classList.remove("active");
+
+  document.body.style.overflow = "";
+}
+
+
+function cerrarSiFondo(event){
+
+  if(event.target === event.currentTarget){
+    cerrarPago();
+  }
+
+}
+
+
+document.addEventListener("keydown", function(event){
+
+  if(event.key === "Escape"){
+    cerrarPago();
+  }
+
+});
+
+</script>
+
 </body>
 </html>
+```
